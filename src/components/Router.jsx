@@ -16,7 +16,6 @@ function App() {
         <Route path="/appointments" element={<Appointments />} />
         <Route path="/store" element={<Store />} />
         <Route path="/tattoos" element={<Tattoos />} />
-        <Route path="*" element={<NotFoundPage />} /> {/* Catch-all route */}
       </Routes>
     </BrowserRouter>
   );
