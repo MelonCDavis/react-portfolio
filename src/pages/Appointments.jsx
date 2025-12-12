@@ -12,7 +12,7 @@ const Appointments = () => {
       <div className="container">
         <br />
         <div className="mx-5 text-center">
-          <h2 className="custom-tattoo-border rounded my-text-shadow bg-light fw-bold">
+          <h2 className="custom-tattoo-border rounded my-text-shadow bg-light">
             A journey of a thousand miles begins with a single step. Although I
             pride myself on being on top of my work, there are times that I may
             not get back to clients on the day you send your email. Fear not
