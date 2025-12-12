@@ -145,7 +145,7 @@ const Store = () => {
         </div>
 
         <div className="container-fluid bg-secondary text-center py-4">
-          <h2 className="m-3 mx-auto px-3 rounded custom-tattoo-border my-text-shadow bg-light fw-bold pb-2">
+          <h2 className="m-3 mx-auto px-3 rounded custom-tattoo-border my-text-shadow bg-light pb-2">
             COMING SOON! <br /> but hey...check this out
           </h2>
         </div>
