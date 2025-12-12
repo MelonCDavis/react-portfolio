@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -26,40 +27,29 @@ const Footer = () => {
             <h4 className="fw-bold text-lg-center">Menu</h4>
             <ul className="list-unstyled pt-2">
               <li className="py-1 text-lg-center">
-                <a
-                  href="/"
-                  className="btn btn-secondary btn-sm"
-                  role="button"
-                >
+                <Link to="/" className="btn btn-secondary btn-sm">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="py-1 text-lg-center">
-                <a
-                  href="/tattoos"
-                  className="btn btn-secondary btn-sm"
-                  role="button"
-                >
+                <Link to="/tattoos" className="btn btn-secondary btn-sm">
                   Tattoos
-                </a>
+                </Link>
               </li>
               <li className="py-1 text-lg-center">
-                <a
-                  href="/appointments"
-                  className="btn btn-secondary btn-sm"
-                  role="button"
-                >
+                <Link to="/appointments" className="btn btn-secondary btn-sm">
                   Appointments
-                </a>
+                </Link>
               </li>
               <li className="py-1 text-lg-center">
-                <a
-                  href="/aftercare"
-                  className="btn btn-secondary btn-sm"
-                  role="button"
-                >
+                <Link to="/aftercare" className="btn btn-secondary btn-sm">
                   Aftercare
-                </a>
+                </Link>
+              </li>
+              <li className="py-1 text-lg-center">
+                <Link to="/store" className="btn btn-secondary btn-sm">
+                  Store
+                </Link>
               </li>
             </ul>
           </div>
@@ -70,31 +60,41 @@ const Footer = () => {
               <a
                 href="https://www.facebook.com/brothertiki"
                 className="text-light fs-2 me-3"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <i className="fa-brands fa-facebook"></i>
               </a>
               <a
                 href="https://www.github.com/MelonCDavis"
                 className="text-light fs-2 me-3"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <i className="fa-brands fa-github"></i>
               </a>
               <a
                 href="https://www.instagram.com/bentbackandbeyond/"
                 className="text-light fs-2 me-3"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <i className="fa-brands fa-instagram"></i>
               </a>
               <a
                 href="https://www.linkedin.com/chrismelondavis"
                 className="text-light fs-2"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <i className="fa-brands fa-linkedin"></i>
               </a>
             </div>
           </div>
         </div>
+
         <hr />
+
         <div className="text-center py-1">
           <p>2025 © BentBack&amp;Beyond. All Rights Reserved.</p>
         </div>
