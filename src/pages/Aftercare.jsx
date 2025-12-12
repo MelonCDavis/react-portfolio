@@ -10,7 +10,7 @@ const Aftercare = () => {
         </h1>
 
         <div className="px-4 py-5 text-center">
-          <h2 className="display-5 p-3 my-text-shadow custom-card-border rounded fw-bold mb-5 bg-light">
+          <h2 className="display-5 p-3 my-text-shadow custom-card-border rounded mb-5 bg-light">
             Your new tattoo isn&apos;t just a piece of art. I did the tattoo to
             the best of my ability, but now it&apos;s up to you to take care of
             it. Here is how to do just that.
