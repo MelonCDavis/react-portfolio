@@ -76,7 +76,7 @@ const Tattoos = () => {
             src={melonavl450}
             alt="Melon Chris Davis"
           />
-          <h2 className="p-3 custom-tattoo-border rounded my-text-shadow bg-light fw-bold">
+          <h2 className="p-3 custom-tattoo-border rounded my-text-shadow bg-light">
             Hello and welcome! I'm Melon Chris Davis and I'm excited to share a
             bit of my tattoo journey with you. I hope you enjoy the show!
           </h2>
