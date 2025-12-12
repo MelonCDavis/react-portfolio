@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import p1 from "../assets/1.PNG";
 import p2 from "../assets/2.PNG";
@@ -34,6 +34,7 @@ function shuffle(array) {
 const Store = () => {
   const [sourcePieces, setSourcePieces] = useState([]);
   const [boardPieces, setBoardPieces] = useState(Array(9).fill(null));
+  const pointerDragRef = useRef(null);
 
   useEffect(() => {
     setSourcePieces(shuffle(initialPieces));
@@ -102,9 +103,42 @@ const Store = () => {
     setSourcePieces(newSource);
   };
 
+  const handlePointerDown = (from, index) => {
+    pointerDragRef.current = { from, index };
+  };
+
+  const handlePointerUpOnBoard = (boardIndex) => {
+    const data = pointerDragRef.current;
+    if (!data) return;
+
+    const fakeEvent = {
+      preventDefault: () => {},
+      dataTransfer: {
+        getData: () => JSON.stringify(data),
+      },
+    };
+
+    handleDropOnBoard(fakeEvent, boardIndex);
+    pointerDragRef.current = null;
+  };
+
+  const handlePointerUpOnSource = () => {
+    const data = pointerDragRef.current;
+    if (!data) return;
+
+    const fakeEvent = {
+      preventDefault: () => {},
+      dataTransfer: {
+        getData: () => JSON.stringify(data),
+      },
+    };
+
+    handleDropOnSource(fakeEvent);
+    pointerDragRef.current = null;
+  };
+
   return (
     <main className="bg-secondary">
-
       <header className="pb-0">
         <div className="container-fluid bg-dark custom-tattoo-border py-3">
           <h1 className="display-1 text-center text-white">THE STORE</h1>
@@ -136,22 +170,26 @@ const Store = () => {
       </div>
 
       <div id="puzzle" className="container py-0">
-
         <div className="row puzzle-align justify-content-center">
-
           <div className="col-12 col-md-5 d-flex justify-content-center">
             <div
               id="drag"
               className="drag"
               onDrop={handleDropOnSource}
               onDragOver={allowDrop}
+              onPointerUp={handlePointerUpOnSource}
             >
               {sourcePieces.map((piece, index) => (
                 <div className="dragBox" key={piece.id}>
                   <div
                     className={`images ${piece.didSnap ? "snap" : ""}`}
                     draggable
-                    onDragStart={(e) => handleDragStart(e, "source", index)}
+                    onDragStart={(e) =>
+                      handleDragStart(e, "source", index)
+                    }
+                    onPointerDown={() =>
+                      handlePointerDown("source", index)
+                    }
                     style={{ "--img": `url(${piece.img})` }}
                   ></div>
                 </div>
@@ -167,6 +205,7 @@ const Store = () => {
                   className="dropBox"
                   onDrop={(e) => handleDropOnBoard(e, index)}
                   onDragOver={allowDrop}
+                  onPointerUp={() => handlePointerUpOnBoard(index)}
                 >
                   {piece && (
                     <div
@@ -175,6 +214,9 @@ const Store = () => {
                       onDragStart={(e) =>
                         handleDragStart(e, "board", index)
                       }
+                      onPointerDown={() =>
+                        handlePointerDown("board", index)
+                      }
                       style={{ "--img": `url(${piece.img})` }}
                     ></div>
                   )}
@@ -182,7 +224,6 @@ const Store = () => {
               ))}
             </div>
           </div>
-
         </div>
       </div>
 
